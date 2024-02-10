@@ -16,6 +16,8 @@ class DexcomService {
     private let redirectUri = "data-driven-diabetes://oauth-callback"
     private let authorizationEndpoint = "https://api.dexcom.com/v2/oauth2/login"
     private let tokenEndpoint = "https://api.dexcom.com/v2/oauth2/token"
+    
+    // change
 
     private var authorizationCode: String?
 
