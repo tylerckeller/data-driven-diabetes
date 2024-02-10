@@ -35,6 +35,7 @@
 		ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
 		ADFD03EE2B77DB97007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexcomService.swift; sourceTree = "<group>"; };
+		ADFD03F32B77E0B7007CFF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 		ADFD03CE2B77C958007CFF53 /* data-driven-diabetes */ = {
 			isa = PBXGroup;
 			children = (
+				ADFD03F32B77E0B7007CFF53 /* Info.plist */,
 				ADFD03F02B77DD8E007CFF53 /* Services */,
 				ADFD03E62B77DA52007CFF53 /* User */,
 				ADFD03DF2B77C980007CFF53 /* ViewModels */,
@@ -355,6 +357,7 @@
 				DEVELOPMENT_TEAM = MU64J9Q3TA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "data-driven-diabetes/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -384,6 +387,7 @@
 				DEVELOPMENT_TEAM = MU64J9Q3TA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "data-driven-diabetes/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
