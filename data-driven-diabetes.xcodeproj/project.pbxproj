@@ -19,6 +19,7 @@
 		ADFD03ED2B77DB8F007CFF53 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */; };
 		ADFD03EF2B77DB97007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EE2B77DB97007CFF53 /* Home.swift */; };
 		ADFD03F22B77DD9A007CFF53 /* DexcomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */; };
+		ADFD03F52B77E540007CFF53 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03F42B77E540007CFF53 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		ADFD03EE2B77DB97007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexcomService.swift; sourceTree = "<group>"; };
 		ADFD03F32B77E0B7007CFF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ADFD03F42B77E540007CFF53 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		ADFD03DF2B77C980007CFF53 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				ADFD03F42B77E540007CFF53 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADFD03E82B77DA5B007CFF53 /* UserManager.swift in Sources */,
+				ADFD03F52B77E540007CFF53 /* UserViewModel.swift in Sources */,
 				ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */,
 				ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */,
 				ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */,
