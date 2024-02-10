@@ -47,6 +47,7 @@
 		ADFD042C2B77E8CA007CFF53 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD042B2B77E8CA007CFF53 /* FirebaseStorageCombine-Community */; };
 		ADFD04302B77F27A007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD042F2B77F27A007CFF53 /* Home.swift */; };
 		ADFD04332B77F58C007CFF53 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04322B77F58C007CFF53 /* OAuthSwift */; };
+		F52C1A682B78059B00B12013 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A672B78059B00B12013 /* Homepage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		ADFD03F32B77E0B7007CFF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ADFD03F42B77E540007CFF53 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		ADFD042F2B77F27A007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F52C1A672B78059B00B12013 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				ADFD03E92B77DB03007CFF53 /* Colors */,
 				ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */,
 				ADFD042F2B77F27A007CFF53 /* Home.swift */,
+				F52C1A672B78059B00B12013 /* Homepage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */,
 				ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */,
 				ADFD03E32B77D970007CFF53 /* EGV.swift in Sources */,
+				F52C1A682B78059B00B12013 /* Homepage.swift in Sources */,
 				ADFD03ED2B77DB8F007CFF53 /* Onboard.swift in Sources */,
 				ADFD03D02B77C958007CFF53 /* data_driven_diabetesApp.swift in Sources */,
 				ADFD03F22B77DD9A007CFF53 /* DexcomService.swift in Sources */,

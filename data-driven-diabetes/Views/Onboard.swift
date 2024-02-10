@@ -38,7 +38,7 @@ struct Onboard: View {
                 .padding(16)
                 .font(.footnote)
         }
-        .background(Deal_ioColor.background(for: UserManager.shared.colorScheme))
+        .background(ant_ioColor.login_background(for: UserManager.shared.colorScheme))
         .alert(isPresented: $showInvalidAlert) {
             Alert(title: Text("Invalid Login"), message: Text("Please enter an @mines.edu email"), dismissButton: .default(Text("OK")))
         }

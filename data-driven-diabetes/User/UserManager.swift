@@ -28,7 +28,7 @@ class UserManager: ObservableObject {
         isLoggedIn = userDefaults.bool(forKey: loggedInKey)
     
         let storedColorScheme = userDefaults.string(forKey: colorSchemeKey) ?? "dark"
-        colorScheme = ColorScheme(rawValue: storedColorScheme) ?? .dark
+        colorScheme = ColorScheme(rawValue: storedColorScheme) ?? .light
         userDefaults.set(storedColorScheme, forKey: colorSchemeKey)
     
         userID = userDefaults.string(forKey: userIDKey) ?? UUID().uuidString
