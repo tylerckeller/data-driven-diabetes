@@ -7,14 +7,25 @@
 
 import SwiftUI
 import FirebaseCore
+import OAuthSwift
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey  : Any] = [:]) -> Bool {
+          if url.host == "oauth-callback" {
+              OAuthSwift.handle(url: url)
+            }
     FirebaseApp.configure()
-
     return true
-  }
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+            guard let url = URLContexts.first?.url else {
+                return
+            }
+            if url.host == "oauth-callback" {
+                OAuthSwift.handle(url: url)
+            }
+    }
 }
 
 @main

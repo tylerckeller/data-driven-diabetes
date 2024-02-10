@@ -46,6 +46,7 @@
 		ADFD042A2B77E8CA007CFF53 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04292B77E8CA007CFF53 /* FirebaseStorage */; };
 		ADFD042C2B77E8CA007CFF53 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD042B2B77E8CA007CFF53 /* FirebaseStorageCombine-Community */; };
 		ADFD04302B77F27A007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD042F2B77F27A007CFF53 /* Home.swift */; };
+		ADFD04332B77F58C007CFF53 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04322B77F58C007CFF53 /* OAuthSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 				ADFD04182B77E8CA007CFF53 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				ADFD04102B77E8CA007CFF53 /* FirebaseFirestore in Frameworks */,
 				ADFD03FC2B77E8CA007CFF53 /* FirebaseAnalyticsSwift in Frameworks */,
+				ADFD04332B77F58C007CFF53 /* OAuthSwift in Frameworks */,
 				ADFD03F82B77E8CA007CFF53 /* FirebaseAnalytics in Frameworks */,
 				ADFD03FA2B77E8CA007CFF53 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				ADFD04202B77E8CA007CFF53 /* FirebaseMLModelDownloader in Frameworks */,
@@ -239,6 +241,7 @@
 				ADFD04272B77E8CA007CFF53 /* FirebaseRemoteConfigSwift */,
 				ADFD04292B77E8CA007CFF53 /* FirebaseStorage */,
 				ADFD042B2B77E8CA007CFF53 /* FirebaseStorageCombine-Community */,
+				ADFD04322B77F58C007CFF53 /* OAuthSwift */,
 			);
 			productName = "data-driven-diabetes";
 			productReference = ADFD03CC2B77C958007CFF53 /* data-driven-diabetes.app */;
@@ -270,6 +273,7 @@
 			mainGroup = ADFD03C32B77C958007CFF53;
 			packageReferences = (
 				ADFD03F62B77E8CA007CFF53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				ADFD04312B77F58C007CFF53 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 			);
 			productRefGroup = ADFD03CD2B77C958007CFF53 /* Products */;
 			projectDirPath = "";
@@ -524,6 +528,14 @@
 				minimumVersion = 10.21.0;
 			};
 		};
+		ADFD04312B77F58C007CFF53 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -661,6 +673,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ADFD03F62B77E8CA007CFF53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		ADFD04322B77F58C007CFF53 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFD04312B77F58C007CFF53 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

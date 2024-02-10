@@ -13,7 +13,6 @@ import SwiftUI
 class UserViewModel: ObservableObject {
     @ObservedObject var userManager = UserManager.shared
     private var LOG_TAG = "LOG: ViewModel"
-    @Published var tabSelection: Int = 0
     @Published var glucoseRecords: [GlucoseRecord] = []
     @Published var loading: Bool = false {
         didSet {
