@@ -33,7 +33,7 @@ struct data_driven_diabetesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(userManager: UserManager.shared)
+            ContentView()
         }
     }
 }

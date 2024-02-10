@@ -10,14 +10,14 @@ class UserManager: ObservableObject {
     @ObservedObject static var shared = UserManager()
     
     private let userIDKey = "userID"
-    private let loggedInKey = "userLoggedIn"
     private let colorSchemeKey = "colorScheme"
+    private let oauthTokenKey = "oauthToken"
     
     let userDefaults = UserDefaults.standard
     
     var userID: String
+    @Published var oauthToken: String
     
-    @Published var isLoggedIn: Bool
     @Published var colorScheme: ColorScheme {
         didSet {
             userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
@@ -25,19 +25,19 @@ class UserManager: ObservableObject {
     }
 
     private init() {
-        isLoggedIn = userDefaults.bool(forKey: loggedInKey)
-    
         let storedColorScheme = userDefaults.string(forKey: colorSchemeKey) ?? "dark"
         colorScheme = ColorScheme(rawValue: storedColorScheme) ?? .dark
         userDefaults.set(storedColorScheme, forKey: colorSchemeKey)
     
         userID = userDefaults.string(forKey: userIDKey) ?? UUID().uuidString
         userDefaults.set(userID, forKey: userIDKey)
+        
+        oauthToken = userDefaults.string(forKey: oauthTokenKey) ?? ""
+        userDefaults.set(oauthToken, forKey: oauthTokenKey)
     }
     
     func checkLoginStatus() -> Bool {
-        print("CLS: \(isLoggedIn)")
-        return isLoggedIn
+        return oauthToken != ""
     }
     
     func setColorScheme(_ colorScheme: ColorScheme) {
@@ -45,15 +45,8 @@ class UserManager: ObservableObject {
         userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
     }
     
-    func login() {
-        userDefaults.set(true, forKey: loggedInKey)
-        isLoggedIn = true
-        print("UM: \(userDefaults.bool(forKey: loggedInKey))")
-    }
-    
-    func logout() {
-        userDefaults.set(false, forKey: loggedInKey)
-        isLoggedIn = false
-        print("UM: \(userDefaults.bool(forKey: loggedInKey))")
+    func setOAuthToken(_ oauthToken: String) {
+        self.oauthToken = oauthToken
+        userDefaults.set(oauthToken, forKey: oauthTokenKey)
     }
 }

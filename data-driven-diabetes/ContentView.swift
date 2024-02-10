@@ -10,18 +10,14 @@ import Firebase
 
 struct ContentView: View {
     @ObservedObject var viewModel = UserViewModel()
-    @ObservedObject var userManager: UserManager
-    @State var isLoggedIn = UserManager.shared.isLoggedIn
     
 
     var body: some View {
         Group {
-            if isLoggedIn {
+            if UserManager.shared.checkLoginStatus() {
                 Home(viewModel: UserViewModel())
             } else {
-                Onboard(viewModel: UserViewModel()) {
-                    userManager.isLoggedIn = true
-                }
+                Onboard(viewModel: UserViewModel())
             }
         }
     }
