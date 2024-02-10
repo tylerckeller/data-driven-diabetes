@@ -12,6 +12,7 @@
 		ADFD03D42B77C95A007CFF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADFD03D32B77C95A007CFF53 /* Assets.xcassets */; };
 		ADFD03D72B77C95A007CFF53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADFD03D62B77C95A007CFF53 /* Preview Assets.xcassets */; };
 		ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E02B77D69E007CFF53 /* GlucoseRecord.swift */; };
+		ADFD03E32B77D970007CFF53 /* EGV.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E22B77D970007CFF53 /* EGV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		ADFD03D32B77C95A007CFF53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADFD03D62B77C95A007CFF53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ADFD03E02B77D69E007CFF53 /* GlucoseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseRecord.swift; sourceTree = "<group>"; };
+		ADFD03E22B77D970007CFF53 /* EGV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EGV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				ADFD03E02B77D69E007CFF53 /* GlucoseRecord.swift */,
+				ADFD03E22B77D970007CFF53 /* EGV.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			files = (
 				ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */,
 				ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */,
+				ADFD03E32B77D970007CFF53 /* EGV.swift in Sources */,
 				ADFD03D02B77C958007CFF53 /* data_driven_diabetesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
