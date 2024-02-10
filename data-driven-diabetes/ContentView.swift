@@ -6,19 +6,24 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
+    @ObservedObject var viewModel = UserViewModel()
+    @ObservedObject var userManager: UserManager
+    @State var isLoggedIn = UserManager.shared.isLoggedIn
+    
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if isLoggedIn {
+                Home(viewModel: UserViewModel())
+            } else {
+                Onboard(viewModel: UserViewModel()) {
+                    userManager.isLoggedIn = true
+                }
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
-}
