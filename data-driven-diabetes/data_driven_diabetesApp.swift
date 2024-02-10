@@ -10,21 +10,20 @@ import FirebaseCore
 import OAuthSwift
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey  : Any] = [:]) -> Bool {
-          if url.host == "oauth-callback" {
-              OAuthSwift.handle(url: url)
-            }
-    FirebaseApp.configure()
-    return true
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme == "data-driven-diabetes" && url.host == "oauth-callback" {
+            return true
+        }
+        return false
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-            guard let url = URLContexts.first?.url else {
-                return
-            }
-            if url.host == "oauth-callback" {
-                OAuthSwift.handle(url: url)
-            }
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        if url.host == "oauth-callback" {
+            OAuthSwift.handle(url: url)
+        }
     }
 }
 

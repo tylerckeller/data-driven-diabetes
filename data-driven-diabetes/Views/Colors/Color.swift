@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Deal_ioColor {
+struct ant_ioColor {
     @ObservedObject var userManager = UserManager.shared
     
     static func accent(for colorScheme: ColorScheme) -> Color {

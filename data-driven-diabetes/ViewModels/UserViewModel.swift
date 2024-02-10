@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import FirebaseAnalytics
-import FirebaseMessaging
 import SwiftUI
 
 class UserViewModel: ObservableObject {
@@ -55,17 +53,6 @@ class UserViewModel: ObservableObject {
     }
     
     func connectToDexcom() {
-    //        mDexcomService.connectToDexcomPressed() { result in
-    //            switch result {
-    //                case .success(let egv):
-    //                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-    //                        self.glucoseRecords = egv.records;
-    //                    }
-    //                case .failure(let error):
-    //                    //TODO handle error
-    //                    print("Error: \(error.localizedDescription)")
-    //                }
-    //            }
-    //        }
+        mDexcomService.connectToDexcomPressed()
     }
 }

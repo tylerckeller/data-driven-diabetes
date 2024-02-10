@@ -64,6 +64,7 @@
 		ADFD03F32B77E0B7007CFF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ADFD03F42B77E540007CFF53 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		ADFD042F2B77F27A007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		ADFD04342B780EF1007CFF53 /* data-driven-diabetes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "data-driven-diabetes.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +125,7 @@
 		ADFD03CE2B77C958007CFF53 /* data-driven-diabetes */ = {
 			isa = PBXGroup;
 			children = (
+				ADFD04342B780EF1007CFF53 /* data-driven-diabetes.entitlements */,
 				ADFD03F32B77E0B7007CFF53 /* Info.plist */,
 				ADFD03F02B77DD8E007CFF53 /* Services */,
 				ADFD03E62B77DA52007CFF53 /* User */,
@@ -441,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "data-driven-diabetes/data-driven-diabetes.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"data-driven-diabetes/Preview Content\"";
@@ -471,6 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "data-driven-diabetes/data-driven-diabetes.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"data-driven-diabetes/Preview Content\"";
