@@ -9,16 +9,13 @@ import SwiftUI
 class UserManager: ObservableObject {
     @ObservedObject static var shared = UserManager()
     
-    private let emailKey = "userEmail"
-    private let loggedInKey = "userLoggedIn"
-    private let favoritesKey = "userFavorites"
     private let userIDKey = "userID"
+    private let loggedInKey = "userLoggedIn"
     private let colorSchemeKey = "colorScheme"
     
     let userDefaults = UserDefaults.standard
     
     var userID: String
-    var userEmail: String
     
     @Published var isLoggedIn: Bool
     @Published var colorScheme: ColorScheme {
@@ -36,9 +33,6 @@ class UserManager: ObservableObject {
     
         userID = userDefaults.string(forKey: userIDKey) ?? UUID().uuidString
         userDefaults.set(userID, forKey: userIDKey)
-        
-        userEmail = userDefaults.string(forKey: emailKey) ?? "N/A"
-        userDefaults.set(userEmail, forKey: emailKey)
     }
     
     func checkLoginStatus() -> Bool {
@@ -51,8 +45,7 @@ class UserManager: ObservableObject {
         userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
     }
     
-    func login(email: String) {
-        userDefaults.set(email, forKey: emailKey)
+    func login() {
         userDefaults.set(true, forKey: loggedInKey)
         isLoggedIn = true
         print("UM: \(userDefaults.bool(forKey: loggedInKey))")
@@ -62,33 +55,5 @@ class UserManager: ObservableObject {
         userDefaults.set(false, forKey: loggedInKey)
         isLoggedIn = false
         print("UM: \(userDefaults.bool(forKey: loggedInKey))")
-    }
-    
-    func addFavorite(dealID: String) {
-        // Get the existing favorites array from user defaults
-        var favorites = userDefaults.array(forKey: favoritesKey) as? [String] ?? []
-        
-        favorites.append(dealID)
-        // Save the updated favorites array to user defaults
-        userDefaults.set(favorites, forKey: favoritesKey)
-        //print("LOG Array \(String(describing: userDefaults.array(forKey: favoritesKey)))")
-        // Check if user has allowed notifications
-    }
-
-    
-    func removeFavorite(dealID: String) {
-        //print("LOG RemoveID: \(dealID)")
-        var favorites = userDefaults.array(forKey: favoritesKey) as? [String] ?? []
-
-        while let index = favorites.firstIndex(of: dealID) {
-            favorites.remove(at: index)
-        }
-        
-        userDefaults.set(favorites, forKey: favoritesKey)
-        //print("LOG Array \(String(describing: userDefaults.array(forKey: favoritesKey)))")
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.getNotificationSettings { (settings) in
-            print("FAVORITES_SUBSCRIPTION: Notification settings: \(settings)")
-        }
     }
 }

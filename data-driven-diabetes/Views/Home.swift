@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct Home: View {
+    @ObservedObject var viewModel: UserViewModel
+    @ObservedObject var userManager = UserManager.shared
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
-}
-
-#Preview {
-    Home()
 }

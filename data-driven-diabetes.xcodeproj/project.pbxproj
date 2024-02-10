@@ -13,11 +13,9 @@
 		ADFD03D72B77C95A007CFF53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADFD03D62B77C95A007CFF53 /* Preview Assets.xcassets */; };
 		ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E02B77D69E007CFF53 /* GlucoseRecord.swift */; };
 		ADFD03E32B77D970007CFF53 /* EGV.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E22B77D970007CFF53 /* EGV.swift */; };
-		ADFD03E52B77DA0E007CFF53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E42B77DA0E007CFF53 /* User.swift */; };
 		ADFD03E82B77DA5B007CFF53 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E72B77DA5B007CFF53 /* UserManager.swift */; };
 		ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EA2B77DB1C007CFF53 /* Color.swift */; };
 		ADFD03ED2B77DB8F007CFF53 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */; };
-		ADFD03EF2B77DB97007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EE2B77DB97007CFF53 /* Home.swift */; };
 		ADFD03F22B77DD9A007CFF53 /* DexcomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */; };
 		ADFD03F52B77E540007CFF53 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03F42B77E540007CFF53 /* UserViewModel.swift */; };
 		ADFD03F82B77E8CA007CFF53 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD03F72B77E8CA007CFF53 /* FirebaseAnalytics */; };
@@ -47,6 +45,7 @@
 		ADFD04282B77E8CA007CFF53 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04272B77E8CA007CFF53 /* FirebaseRemoteConfigSwift */; };
 		ADFD042A2B77E8CA007CFF53 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04292B77E8CA007CFF53 /* FirebaseStorage */; };
 		ADFD042C2B77E8CA007CFF53 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD042B2B77E8CA007CFF53 /* FirebaseStorageCombine-Community */; };
+		ADFD04302B77F27A007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD042F2B77F27A007CFF53 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,14 +56,13 @@
 		ADFD03D62B77C95A007CFF53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ADFD03E02B77D69E007CFF53 /* GlucoseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseRecord.swift; sourceTree = "<group>"; };
 		ADFD03E22B77D970007CFF53 /* EGV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EGV.swift; sourceTree = "<group>"; };
-		ADFD03E42B77DA0E007CFF53 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ADFD03E72B77DA5B007CFF53 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		ADFD03EA2B77DB1C007CFF53 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
-		ADFD03EE2B77DB97007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexcomService.swift; sourceTree = "<group>"; };
 		ADFD03F32B77E0B7007CFF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ADFD03F42B77E540007CFF53 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		ADFD042F2B77F27A007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +149,6 @@
 			children = (
 				ADFD03E02B77D69E007CFF53 /* GlucoseRecord.swift */,
 				ADFD03E22B77D970007CFF53 /* EGV.swift */,
-				ADFD03E42B77DA0E007CFF53 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,7 +158,7 @@
 			children = (
 				ADFD03E92B77DB03007CFF53 /* Colors */,
 				ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */,
-				ADFD03EE2B77DB97007CFF53 /* Home.swift */,
+				ADFD042F2B77F27A007CFF53 /* Home.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,13 +299,12 @@
 			files = (
 				ADFD03E82B77DA5B007CFF53 /* UserManager.swift in Sources */,
 				ADFD03F52B77E540007CFF53 /* UserViewModel.swift in Sources */,
+				ADFD04302B77F27A007CFF53 /* Home.swift in Sources */,
 				ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */,
 				ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */,
 				ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */,
-				ADFD03EF2B77DB97007CFF53 /* Home.swift in Sources */,
 				ADFD03E32B77D970007CFF53 /* EGV.swift in Sources */,
 				ADFD03ED2B77DB8F007CFF53 /* Onboard.swift in Sources */,
-				ADFD03E52B77DA0E007CFF53 /* User.swift in Sources */,
 				ADFD03D02B77C958007CFF53 /* data_driven_diabetesApp.swift in Sources */,
 				ADFD03F22B77DD9A007CFF53 /* DexcomService.swift in Sources */,
 			);

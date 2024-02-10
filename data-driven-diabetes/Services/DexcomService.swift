@@ -98,6 +98,7 @@ class DexcomService {
 
 
     func fetchEGVs(startDate: String, endDate: String, completion: @escaping (Result<EGV, Error>) -> Void) {
+//        return EGV
         
     }
 }
