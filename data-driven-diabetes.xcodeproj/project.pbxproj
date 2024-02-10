@@ -16,6 +16,9 @@
 		ADFD03E52B77DA0E007CFF53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E42B77DA0E007CFF53 /* User.swift */; };
 		ADFD03E82B77DA5B007CFF53 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03E72B77DA5B007CFF53 /* UserManager.swift */; };
 		ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EA2B77DB1C007CFF53 /* Color.swift */; };
+		ADFD03ED2B77DB8F007CFF53 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */; };
+		ADFD03EF2B77DB97007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03EE2B77DB97007CFF53 /* Home.swift */; };
+		ADFD03F22B77DD9A007CFF53 /* DexcomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		ADFD03E42B77DA0E007CFF53 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ADFD03E72B77DA5B007CFF53 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		ADFD03EA2B77DB1C007CFF53 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
+		ADFD03EE2B77DB97007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexcomService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 		ADFD03CE2B77C958007CFF53 /* data-driven-diabetes */ = {
 			isa = PBXGroup;
 			children = (
+				ADFD03F02B77DD8E007CFF53 /* Services */,
 				ADFD03E62B77DA52007CFF53 /* User */,
 				ADFD03DF2B77C980007CFF53 /* ViewModels */,
 				ADFD03DE2B77C979007CFF53 /* Views */,
@@ -95,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				ADFD03E92B77DB03007CFF53 /* Colors */,
+				ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */,
+				ADFD03EE2B77DB97007CFF53 /* Home.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +129,14 @@
 				ADFD03EA2B77DB1C007CFF53 /* Color.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		ADFD03F02B77DD8E007CFF53 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +213,12 @@
 				ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */,
 				ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */,
 				ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */,
+				ADFD03EF2B77DB97007CFF53 /* Home.swift in Sources */,
 				ADFD03E32B77D970007CFF53 /* EGV.swift in Sources */,
+				ADFD03ED2B77DB8F007CFF53 /* Onboard.swift in Sources */,
 				ADFD03E52B77DA0E007CFF53 /* User.swift in Sources */,
 				ADFD03D02B77C958007CFF53 /* data_driven_diabetesApp.swift in Sources */,
+				ADFD03F22B77DD9A007CFF53 /* DexcomService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
