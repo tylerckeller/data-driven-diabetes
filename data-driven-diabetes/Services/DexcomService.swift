@@ -6,6 +6,8 @@
 //
 import Foundation
 import OAuthSwift
+import UIKit
+import SafariServices
 
 
 class DexcomService {
@@ -14,27 +16,34 @@ class DexcomService {
     private let clientSecret = "zWCSnPB7bJON41IN"
     private let redirectUri = "https://www.tylerkeller.dev/oauth-callback"
     private let authorizationEndpoint = "https://sandbox-api.dexcom.com/v2/oauth2/login"
+    private let accessTokenEndpoint = "https://sandbox-api.dexcom.com/v2/oauth2/token"
     
     var oauthswift: OAuth2Swift?
 
     func connectToDexcomPressed() {
         
+        OAuthSwift.setLogLevel(OAuthLogLevel(rawValue: 0)!)
+        
         let oauthswift = OAuth2Swift(
             consumerKey: clientId,
             consumerSecret: clientSecret,
             authorizeUrl: authorizationEndpoint,
-            responseType: "code"
+            accessTokenUrl: accessTokenEndpoint,
+            responseType: "code",
+            contentType: "application/x-www-form-urlencoded"
         )
         
         oauthswift.authorize(
             withCallbackURL: URL(string: redirectUri)!,
-            scope: "offline_access", state: "DEXCOM") { (result: Result<(credential: OAuthSwiftCredential, response: OAuthSwiftResponse?, parameters: [String: Any]), OAuthSwiftError>) in
+            scope: "offline_access",
+            state: "DEXCOM"
+        ) { (result: Result<(credential: OAuthSwiftCredential, response: OAuthSwiftResponse?, parameters: [String: Any]), OAuthSwiftError>) in
                 switch result {
-                case .success(let credential):
-                    print(credential)
-
+                case .success(let successData):
+                    UserManager.shared.saveTokens(accessToken: successData.credential.oauthToken, refreshToken: successData.credential.oauthRefreshToken)
+                    print(successData)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print(error.description)
                 }
         }
         
@@ -42,7 +51,7 @@ class DexcomService {
     }
 
     func fetchEGVs(startDate: String, endDate: String, completion: @escaping (Result<EGV, Error>) -> Void) {
-        guard let oauthClient = self.oauthswift?.client else {
+        guard (self.oauthswift?.client) != nil else {
             completion(.failure(NSError(domain: "DexcomService", code: -1, userInfo: [NSLocalizedDescriptionKey: "OAuth client not available"])))
             return
         }
@@ -53,14 +62,13 @@ class DexcomService {
                 case .success(let response):
                     do {
                         let decoder = JSONDecoder()
-                        // Assuming the JSON root is an array of EGV records
                         let egv = try decoder.decode(EGV.self, from: response.data)
                         completion(.success(egv))
                     } catch {
                         completion(.failure(error))
                     }
                 case .failure(let error):
-                    print(error)
+                    print(error.description)
                 }
             }
     }

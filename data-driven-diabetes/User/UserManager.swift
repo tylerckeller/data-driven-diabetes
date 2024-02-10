@@ -10,13 +10,19 @@ class UserManager: ObservableObject {
     @ObservedObject static var shared = UserManager()
     
     private let userIDKey = "userID"
+    private let accessTokenKey = "accessToken"
+    private let refreshTokenKey = "refreshToken"
+    private let loggedInKey = "loggedIn"
     private let colorSchemeKey = "colorScheme"
-    private let oauthTokenKey = "oauthToken"
     
     let userDefaults = UserDefaults.standard
     
     var userID: String
-    @Published var oauthToken: String
+    
+    var accessToken: String
+    var refreshToken: String
+    
+    @Published var loggedIn: Bool
     
     @Published var colorScheme: ColorScheme {
         didSet {
@@ -28,16 +34,23 @@ class UserManager: ObservableObject {
         let storedColorScheme = userDefaults.string(forKey: colorSchemeKey) ?? "dark"
         colorScheme = ColorScheme(rawValue: storedColorScheme) ?? .dark
         userDefaults.set(storedColorScheme, forKey: colorSchemeKey)
-    
+        
         userID = userDefaults.string(forKey: userIDKey) ?? UUID().uuidString
         userDefaults.set(userID, forKey: userIDKey)
         
-        oauthToken = userDefaults.string(forKey: oauthTokenKey) ?? ""
-        userDefaults.set(oauthToken, forKey: oauthTokenKey)
+        accessToken = userDefaults.string(forKey: accessTokenKey) ?? ""
+        userDefaults.set(accessToken, forKey: accessTokenKey)
+        
+        refreshToken = userDefaults.string(forKey: refreshTokenKey) ?? ""
+        userDefaults.set(refreshToken, forKey: refreshTokenKey)
+        
+        loggedIn = accessToken != "" && refreshToken != accessToken ? true : false
+        userDefaults.set(loggedIn, forKey: loggedInKey)
+        
     }
     
     func checkLoginStatus() -> Bool {
-        return oauthToken != ""
+        return loggedIn
     }
     
     func setColorScheme(_ colorScheme: ColorScheme) {
@@ -45,8 +58,17 @@ class UserManager: ObservableObject {
         userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
     }
     
-    func setOAuthToken(_ oauthToken: String) {
-        self.oauthToken = oauthToken
-        userDefaults.set(oauthToken, forKey: oauthTokenKey)
+    func setLoggedIn(_ loggedIn: Bool) {
+        self.loggedIn = loggedIn
+        userDefaults.set(loggedIn, forKey: loggedInKey)
     }
+    
+    func saveTokens(accessToken: String, refreshToken: String) {
+        self.accessToken = accessToken
+        userDefaults.set(accessToken, forKey: accessTokenKey)
+        
+        self.refreshToken = refreshToken
+        userDefaults.set(refreshToken, forKey: refreshTokenKey)
+    }
+    
 }

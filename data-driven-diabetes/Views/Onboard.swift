@@ -10,12 +10,15 @@ import SwiftUI
 struct Onboard: View {
     @ObservedObject var viewModel: UserViewModel
     @ObservedObject var userManager = UserManager.shared
+    var onLogin: () -> Void
     
     var body: some View {
         VStack {
             Spacer()
             Button(action: {
-                viewModel.connectToDexcom()
+//                viewModel.connectToDexcom()
+                viewModel.getAllEGVs()
+                onLogin()
             }) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
