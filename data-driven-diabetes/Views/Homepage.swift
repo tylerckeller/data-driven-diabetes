@@ -95,16 +95,33 @@ struct Homepage: View {
                         .ignoresSafeArea()
                         .frame(width: geometry.size.width, height: 130)
                     HStack{
-                        Text(greetingBasedOnTimeOfDay+",\n"+"Blaster")
+                        Text(greetingBasedOnTimeOfDay+",\n"+viewModel.name)
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                             .padding(.leading, 30)
                             .foregroundColor(ant_ioColor.homepage_header_text(for: colorScheme))
                         Spacer()
-
+                        Button(action: {
+                            // Action for left arrow button
+                            print("Polling for previous day's data")
+                        }){
+                            Image(systemName: "chevron.left") // Left arrow
+                                .font(.body)
+                                .foregroundColor(ant_ioColor.arrows(for: colorScheme))
+                        }
+                        
                         Text(date)
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                             .foregroundColor(ant_ioColor.date_text(for: colorScheme))
-                            .padding(.trailing, 30)
+                        Button(action: {
+                            // Action for left arrow button
+                            print("Polling for next day's data")
+                        }){
+                            Image(systemName: "chevron.right") // Left arrow
+                                .font(.body)
+                                .foregroundColor(ant_ioColor.arrows(for: colorScheme))
+                                .padding(.trailing, 30)
+                            
+                        }
                     }
                 }
             }
@@ -125,7 +142,7 @@ struct Homepage: View {
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                             .foregroundColor(ant_ioColor.text(for: colorScheme))
                         Color.clear
-                                .frame(height: 1)
+                            .frame(height: 1)
                         HStack {
                             Text(String(format: "%.2f", viewModel.getCurrentDateAverageGlucoseValue()))
                                 .font(.custom("IowanOldStyle-Bold", fixedSize: 32)) // Larger font for the number
@@ -138,7 +155,7 @@ struct Homepage: View {
                                 .foregroundColor(ant_ioColor.text(for: colorScheme))
                         }
                         Color.clear
-                                .frame(height: 1)
+                            .frame(height: 1)
                         HStack {
                             Text("11")
                                 .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
