@@ -63,6 +63,8 @@ struct Homepage: View {
         DataPoint(x: 0.8, y: 0.2)
     ]
     
+    
+    
     @ObservedObject var userManager = UserManager.shared
     // Define your data points using the DataPoint struct
     
@@ -127,7 +129,7 @@ struct Homepage: View {
             .frame(height: 130)
             
             ScatterPlotView(dataPoints: dataPoints)
-                .frame(width:.infinity-40, height: 210)
+                .frame(width:.infinity, height: 210)
                 .padding(20)
             HStack{
                 Spacer()
