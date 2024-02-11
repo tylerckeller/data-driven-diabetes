@@ -10,31 +10,18 @@ class UserManager: ObservableObject {
     @ObservedObject static var shared = UserManager()
     
     private let userIDKey = "userID"
-    private let accessTokenKey = "accessToken"
-    private let refreshTokenKey = "refreshToken"
-    private let loggedInKey = "loggedIn"
-    private let colorSchemeKey = "colorScheme"
+
+    private let loggedInKey = "userLoggedIn"
     
     let userDefaults = UserDefaults.standard
     
     var userID: String
     
-    var accessToken: String
-    var refreshToken: String
-    
-    @Published var loggedIn: Bool
-    
-    @Published var colorScheme: ColorScheme {
-        didSet {
-            userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
-        }
-    }
+
+    @Published var isLoggedIn: Bool
 
     private init() {
-        let storedColorScheme = userDefaults.string(forKey: colorSchemeKey) ?? "dark"
-        colorScheme = ColorScheme(rawValue: storedColorScheme) ?? .dark
-        userDefaults.set(storedColorScheme, forKey: colorSchemeKey)
-        
+        isLoggedIn = userDefaults.bool(forKey: loggedInKey)
         userID = userDefaults.string(forKey: userIDKey) ?? UUID().uuidString
         userDefaults.set(userID, forKey: userIDKey)
         
@@ -53,14 +40,11 @@ class UserManager: ObservableObject {
         return loggedIn
     }
     
-    func setColorScheme(_ colorScheme: ColorScheme) {
-        self.colorScheme = colorScheme
-        userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
-    }
-    
-    func setLoggedIn(_ loggedIn: Bool) {
-        self.loggedIn = loggedIn
-        userDefaults.set(loggedIn, forKey: loggedInKey)
+
+    func login() {
+        userDefaults.set(true, forKey: loggedInKey)
+        isLoggedIn = true
+        print("UM: \(userDefaults.bool(forKey: loggedInKey))")
     }
     
     func saveTokens(accessToken: String, refreshToken: String) {

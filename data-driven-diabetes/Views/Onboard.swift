@@ -10,7 +10,11 @@ import SwiftUI
 struct Onboard: View {
     @ObservedObject var viewModel: UserViewModel
     @ObservedObject var userManager = UserManager.shared
-    var onLogin: () -> Void
+    @Environment(\.colorScheme) var colorScheme
+    @State private var email = ""
+    @State private var password = ""
+    @State private var showInvalidAlert = false
+    var onLogin: () -> Void // new closure parameter
     
     var body: some View {
         VStack {
@@ -29,7 +33,6 @@ struct Onboard: View {
                         .foregroundColor(.white)
                 }
             }
-            Spacer()
         }
         .background(ant_ioColor.background(for: UserManager.shared.colorScheme))
     }
