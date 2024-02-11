@@ -10,6 +10,7 @@ import SwiftUI
 struct Onboard: View {
     @ObservedObject var viewModel: UserViewModel
     @ObservedObject var userManager = UserManager.shared
+    @Environment(\.colorScheme) var colorScheme
     @State private var email = ""
     @State private var password = ""
     @State private var showInvalidAlert = false
@@ -38,7 +39,7 @@ struct Onboard: View {
                 .padding(16)
                 .font(.footnote)
         }
-        .background(ant_ioColor.login_background(for: UserManager.shared.colorScheme))
+        .background(ant_ioColor.login_background(for: colorScheme))
         .alert(isPresented: $showInvalidAlert) {
             Alert(title: Text("Invalid Login"), message: Text("Please enter an @mines.edu email"), dismissButton: .default(Text("OK")))
         }

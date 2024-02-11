@@ -48,7 +48,39 @@
 		ADFD04302B77F27A007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD042F2B77F27A007CFF53 /* Home.swift */; };
 		ADFD04332B77F58C007CFF53 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04322B77F58C007CFF53 /* OAuthSwift */; };
 		F52C1A682B78059B00B12013 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A672B78059B00B12013 /* Homepage.swift */; };
+		F52C1A702B782D0100B12013 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C1A6F2B782D0100B12013 /* WidgetKit.framework */; };
+		F52C1A722B782D0100B12013 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C1A712B782D0100B12013 /* SwiftUI.framework */; };
+		F52C1A752B782D0100B12013 /* StreakWidgeBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A742B782D0100B12013 /* StreakWidgeBundle.swift */; };
+		F52C1A772B782D0100B12013 /* StreakWidgeLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A762B782D0100B12013 /* StreakWidgeLiveActivity.swift */; };
+		F52C1A792B782D0100B12013 /* StreakWidge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A782B782D0100B12013 /* StreakWidge.swift */; };
+		F52C1A7B2B782D0100B12013 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A7A2B782D0100B12013 /* AppIntent.swift */; };
+		F52C1A7D2B782D0400B12013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52C1A7C2B782D0400B12013 /* Assets.xcassets */; };
+		F52C1A812B782D0400B12013 /* StreakWidgeExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F52C1A6D2B782D0100B12013 /* StreakWidgeExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F52C1A7F2B782D0400B12013 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADFD03C42B77C958007CFF53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F52C1A6C2B782D0100B12013;
+			remoteInfo = StreakWidgeExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F52C1A852B782D0400B12013 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F52C1A812B782D0400B12013 /* StreakWidgeExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		ADFD03CC2B77C958007CFF53 /* data-driven-diabetes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "data-driven-diabetes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +98,15 @@
 		ADFD03F42B77E540007CFF53 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		ADFD042F2B77F27A007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		F52C1A672B78059B00B12013 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		F52C1A6D2B782D0100B12013 /* StreakWidgeExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StreakWidgeExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F52C1A6F2B782D0100B12013 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F52C1A712B782D0100B12013 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F52C1A742B782D0100B12013 /* StreakWidgeBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakWidgeBundle.swift; sourceTree = "<group>"; };
+		F52C1A762B782D0100B12013 /* StreakWidgeLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakWidgeLiveActivity.swift; sourceTree = "<group>"; };
+		F52C1A782B782D0100B12013 /* StreakWidge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakWidge.swift; sourceTree = "<group>"; };
+		F52C1A7A2B782D0100B12013 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		F52C1A7C2B782D0400B12013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F52C1A7E2B782D0400B12013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +145,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F52C1A6A2B782D0100B12013 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52C1A722B782D0100B12013 /* SwiftUI.framework in Frameworks */,
+				F52C1A702B782D0100B12013 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				ADFD03CE2B77C958007CFF53 /* data-driven-diabetes */,
+				F52C1A732B782D0100B12013 /* StreakWidge */,
+				F52C1A6E2B782D0100B12013 /* Frameworks */,
 				ADFD03CD2B77C958007CFF53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				ADFD03CC2B77C958007CFF53 /* data-driven-diabetes.app */,
+				F52C1A6D2B782D0100B12013 /* StreakWidgeExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +253,28 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F52C1A6E2B782D0100B12013 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F52C1A6F2B782D0100B12013 /* WidgetKit.framework */,
+				F52C1A712B782D0100B12013 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F52C1A732B782D0100B12013 /* StreakWidge */ = {
+			isa = PBXGroup;
+			children = (
+				F52C1A742B782D0100B12013 /* StreakWidgeBundle.swift */,
+				F52C1A762B782D0100B12013 /* StreakWidgeLiveActivity.swift */,
+				F52C1A782B782D0100B12013 /* StreakWidge.swift */,
+				F52C1A7A2B782D0100B12013 /* AppIntent.swift */,
+				F52C1A7C2B782D0400B12013 /* Assets.xcassets */,
+				F52C1A7E2B782D0400B12013 /* Info.plist */,
+			);
+			path = StreakWidge;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,10 +285,12 @@
 				ADFD03C82B77C958007CFF53 /* Sources */,
 				ADFD03C92B77C958007CFF53 /* Frameworks */,
 				ADFD03CA2B77C958007CFF53 /* Resources */,
+				F52C1A852B782D0400B12013 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F52C1A802B782D0400B12013 /* PBXTargetDependency */,
 			);
 			name = "data-driven-diabetes";
 			packageProductDependencies = (
@@ -250,6 +327,23 @@
 			productReference = ADFD03CC2B77C958007CFF53 /* data-driven-diabetes.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F52C1A6C2B782D0100B12013 /* StreakWidgeExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F52C1A822B782D0400B12013 /* Build configuration list for PBXNativeTarget "StreakWidgeExtension" */;
+			buildPhases = (
+				F52C1A692B782D0100B12013 /* Sources */,
+				F52C1A6A2B782D0100B12013 /* Frameworks */,
+				F52C1A6B2B782D0100B12013 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StreakWidgeExtension;
+			productName = StreakWidgeExtension;
+			productReference = F52C1A6D2B782D0100B12013 /* StreakWidgeExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -257,11 +351,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					ADFD03CB2B77C958007CFF53 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					F52C1A6C2B782D0100B12013 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -283,6 +380,7 @@
 			projectRoot = "";
 			targets = (
 				ADFD03CB2B77C958007CFF53 /* data-driven-diabetes */,
+				F52C1A6C2B782D0100B12013 /* StreakWidgeExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -294,6 +392,14 @@
 			files = (
 				ADFD03D72B77C95A007CFF53 /* Preview Assets.xcassets in Resources */,
 				ADFD03D42B77C95A007CFF53 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F52C1A6B2B782D0100B12013 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52C1A7D2B782D0400B12013 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +424,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F52C1A692B782D0100B12013 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52C1A752B782D0100B12013 /* StreakWidgeBundle.swift in Sources */,
+				F52C1A7B2B782D0100B12013 /* AppIntent.swift in Sources */,
+				F52C1A792B782D0100B12013 /* StreakWidge.swift in Sources */,
+				F52C1A772B782D0100B12013 /* StreakWidgeLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F52C1A802B782D0400B12013 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F52C1A6C2B782D0100B12013 /* StreakWidgeExtension */;
+			targetProxy = F52C1A7F2B782D0400B12013 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ADFD03D82B77C95A007CFF53 /* Debug */ = {
@@ -443,6 +568,7 @@
 		ADFD03DB2B77C95A007CFF53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -473,6 +599,7 @@
 		ADFD03DC2B77C95A007CFF53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -500,6 +627,62 @@
 			};
 			name = Release;
 		};
+		F52C1A832B782D0400B12013 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MU64J9Q3TA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StreakWidge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StreakWidge;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tylerkeller.data-driven-diabetes.StreakWidge";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F52C1A842B782D0400B12013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MU64J9Q3TA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StreakWidge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StreakWidge;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tylerkeller.data-driven-diabetes.StreakWidge";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -517,6 +700,15 @@
 			buildConfigurations = (
 				ADFD03DB2B77C95A007CFF53 /* Debug */,
 				ADFD03DC2B77C95A007CFF53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F52C1A822B782D0400B12013 /* Build configuration list for PBXNativeTarget "StreakWidgeExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F52C1A832B782D0400B12013 /* Debug */,
+				F52C1A842B782D0400B12013 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

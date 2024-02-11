@@ -11,26 +11,15 @@ class UserManager: ObservableObject {
     
     private let userIDKey = "userID"
     private let loggedInKey = "userLoggedIn"
-    private let colorSchemeKey = "colorScheme"
     
     let userDefaults = UserDefaults.standard
     
     var userID: String
     
     @Published var isLoggedIn: Bool
-    @Published var colorScheme: ColorScheme {
-        didSet {
-            userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
-        }
-    }
 
     private init() {
         isLoggedIn = userDefaults.bool(forKey: loggedInKey)
-    
-        let storedColorScheme = userDefaults.string(forKey: colorSchemeKey) ?? "dark"
-        colorScheme = ColorScheme(rawValue: storedColorScheme) ?? .light
-        userDefaults.set(storedColorScheme, forKey: colorSchemeKey)
-    
         userID = userDefaults.string(forKey: userIDKey) ?? UUID().uuidString
         userDefaults.set(userID, forKey: userIDKey)
     }
@@ -38,11 +27,6 @@ class UserManager: ObservableObject {
     func checkLoginStatus() -> Bool {
         print("CLS: \(isLoggedIn)")
         return isLoggedIn
-    }
-    
-    func setColorScheme(_ colorScheme: ColorScheme) {
-        self.colorScheme = colorScheme
-        userDefaults.set(colorScheme.rawValue, forKey: colorSchemeKey)
     }
     
     func login() {

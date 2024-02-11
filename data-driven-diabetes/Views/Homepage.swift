@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct DataPoint: Identifiable {
     let id = UUID() // Unique identifier
     let x: CGFloat
@@ -52,6 +53,8 @@ struct ScatterPlotView: View {
 
 struct Homepage: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     // Example data points for the scatter plot
     private let dataPoints = [
         DataPoint(x: 0.2, y: 0.8),
@@ -60,7 +63,6 @@ struct Homepage: View {
     ]
     
     @ObservedObject var userManager = UserManager.shared
-    
     // Define your data points using the DataPoint struct
     
     
@@ -86,19 +88,37 @@ struct Homepage: View {
             GeometryReader { geometry in
                 ZStack(alignment:.center){
                     RoundedRectangle(cornerRadius: 38.5)
-                        .fill(ant_ioColor.homepage_header(for: UserManager.shared.colorScheme))
+                        .fill(ant_ioColor.homepage_header(for: colorScheme))
                         .ignoresSafeArea()
                         .frame(width: geometry.size.width, height: 130)
                     HStack{
                         Text(greetingBasedOnTimeOfDay+",\n"+"Blaster")
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                             .padding(.leading, 30)
-                            .foregroundColor(ant_ioColor.homepage_header_text(for: UserManager.shared.colorScheme))
+                            .foregroundColor(ant_ioColor.homepage_header_text(for: colorScheme))
                         Spacer()
+                        Button(action: {
+                                // Action for left arrow button
+                                print("Polling for previous day's data")
+                        }){
+                            Image(systemName: "chevron.left") // Left arrow
+                            .font(.body)
+                            .foregroundColor(ant_ioColor.arrows(for: colorScheme))
+                        }
+
                         Text(date)
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
+                            .foregroundColor(ant_ioColor.date_text(for: colorScheme))
+                        Button(action: {
+                                // Action for left arrow button
+                                print("Polling for next day's data")
+                        }){
+                            Image(systemName: "chevron.right") // Left arrow
+                            .font(.body)
+                            .foregroundColor(ant_ioColor.arrows(for: colorScheme))
                             .padding(.trailing, 30)
-                            .foregroundColor(ant_ioColor.date_text(for: UserManager.shared.colorScheme))
+
+                        }
                         
                     }
                 }
@@ -106,7 +126,7 @@ struct Homepage: View {
             .frame(height: 130)
             
             ScatterPlotView(dataPoints: dataPoints)
-                .frame(width:.infinity-40, height: 180)
+                .frame(width:.infinity-40, height: 210)
                 .padding(20)
             HStack{
                 Spacer()
@@ -115,51 +135,35 @@ struct Homepage: View {
                     
                     Text("88%")
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
-                        .foregroundColor(ant_ioColor.text(for: UserManager.shared.colorScheme))
-                    Text("in range")
+                        .foregroundColor(ant_ioColor.text(for: colorScheme))
+                    Text("  in range")
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
-                        .foregroundColor(ant_ioColor.text(for: UserManager.shared.colorScheme))
+                        .foregroundColor(ant_ioColor.text(for: colorScheme))
                     Color.clear
                             .frame(height: 1)
                     Text("70")
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 32)) // Larger font for the number
-                        .foregroundColor(ant_ioColor.text(for: UserManager.shared.colorScheme)) +
+                        .foregroundColor(ant_ioColor.text(for: colorScheme)) +
                     Text(" mg/dl")
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 25)) // Smaller font for the unit
-                        .foregroundColor(ant_ioColor.text(for: UserManager.shared.colorScheme))
-                    Text("average")
+                        .foregroundColor(ant_ioColor.text(for: colorScheme))
+                    Text("  average")
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
-                        .foregroundColor(ant_ioColor.text(for: UserManager.shared.colorScheme))
+                        .foregroundColor(ant_ioColor.text(for: colorScheme))
                     Color.clear
                             .frame(height: 1)
                     Text("11")
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
-                        .foregroundColor(ant_ioColor.text(for: UserManager.shared.colorScheme))
-                    Text("day streak")
+                        .foregroundColor(ant_ioColor.text(for: colorScheme))
+                    Text("  day streak")
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
-                        .foregroundColor(ant_ioColor.text(for: UserManager.shared.colorScheme))
-                    Color.clear
-                            .frame(height: 1)
-                    
+                        .foregroundColor(ant_ioColor.text(for: colorScheme))
                 }
-                .frame(maxWidth: .infinity, alignment: .leading) // Ensure alignment is leading here
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            
-            
-            
-            
-            
-            
-            
-
-            
-            
             Spacer()
-            
-            
         }
-        .background(ant_ioColor.homepage_background(for: UserManager.shared.colorScheme))
-        
+        .background(ant_ioColor.homepage_background(for: colorScheme))
     }
 }
 
