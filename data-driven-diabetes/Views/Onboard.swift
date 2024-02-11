@@ -21,7 +21,8 @@ struct Onboard: View {
             Spacer()
             Button(action: {
 //                viewModel.connectToDexcom()
-                viewModel.getAllEGVs()
+//                viewModel.getAllEGVs()
+                sleep(5)
                 onLogin()
             }) {
                 ZStack {
