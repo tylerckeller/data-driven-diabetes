@@ -55,6 +55,7 @@
 		F52C1A7B2B782D0100B12013 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A7A2B782D0100B12013 /* AppIntent.swift */; };
 		F52C1A7D2B782D0400B12013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52C1A7C2B782D0400B12013 /* Assets.xcassets */; };
 		F52C1A812B782D0400B12013 /* StreakWidgeExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F52C1A6D2B782D0100B12013 /* StreakWidgeExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F52C1A872B78517400B12013 /* TitleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A862B78517400B12013 /* TitleScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		F52C1A7A2B782D0100B12013 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		F52C1A7C2B782D0400B12013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F52C1A7E2B782D0400B12013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F52C1A862B78517400B12013 /* TitleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				ADFD03E92B77DB03007CFF53 /* Colors */,
 				ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */,
 				F52C1A672B78059B00B12013 /* Homepage.swift */,
+				F52C1A862B78517400B12013 /* TitleScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			files = (
 				ADFD03E82B77DA5B007CFF53 /* UserManager.swift in Sources */,
 				ADFD03F52B77E540007CFF53 /* UserViewModel.swift in Sources */,
+				F52C1A872B78517400B12013 /* TitleScreen.swift in Sources */,
 				ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */,
 				ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */,
 				ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */,

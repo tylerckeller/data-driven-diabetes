@@ -40,7 +40,7 @@ class UserViewModel: ObservableObject {
     
 
     func getAllEGVs() {
-        let userId = UUID().uuidString // Generate a unique ID for the user, though not used in this snippet.
+        _ = UUID().uuidString // Generate a unique ID for the user, though not used in this snippet.
 
         var lastValue = 100 // Starting value for glucose level
 
