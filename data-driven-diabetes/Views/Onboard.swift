@@ -12,13 +12,45 @@ struct Onboard: View {
     @ObservedObject var userManager = UserManager.shared
     @Environment(\.colorScheme) var colorScheme
     @State private var showInvalidAlert = false
+    @State private var highBloodSugar: String = ""
+    @State private var lowBloodSugar: String = ""
     var onLogin: () -> Void // new closure parameter
     
     var body: some View {
+        
         HStack {
             Spacer()
             VStack {
-                Spacer()
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("What is your daily blood sugar goal?")
+                        .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
+                        .foregroundColor(ant_ioColor.text(for: colorScheme))
+                    
+
+                        Text("High:")
+                            .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
+                            .foregroundColor(ant_ioColor.text(for: colorScheme))
+                        
+                        TextField("mg/dL", text: $highBloodSugar)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.decimalPad)
+                            .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
+                            .frame(width: 150, height: 80)
+                    
+                    
+                        Text("Low:")
+                            .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
+                            .foregroundColor(ant_ioColor.text(for: colorScheme))
+                        TextField("mg/dL", text: $lowBloodSugar)
+                    
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.decimalPad)
+                            .frame(width: 150, height: 80)
+                            .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
+                    
+                }
+                .padding()
+            
                 Spacer()
                 Button(action: {
                     viewModel.connectToDexcom()
@@ -43,3 +75,6 @@ struct Onboard: View {
     }
 }
 
+#Preview{
+    Onboard(viewModel: UserViewModel(), onLogin: {})
+}
