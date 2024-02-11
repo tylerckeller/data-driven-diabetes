@@ -74,7 +74,65 @@ extension ConfigurationAppIntent {
         intent.favoriteEmoji = "🤩"
         return intent
     }
+    
+    fileprivate static var calendar: ConfigurationAppIntent{
+        let intent = ConfigurationAppIntent()
+        intent.data = 
+    }
 }
+
+struct GoalSquareView: View {
+    var percentage: Double // From 0.0 to 1.0
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: 4)
+            .fill(Color(percentage: percentage))
+            .frame(width: 20, height: 20)
+    }
+}
+
+extension Color {
+    init(percentage: Double) {
+        self = percentage == 1.0 ? .green : .gray
+        // You can adjust the color to show gradients based on the percentage
+    }
+}
+
+struct WidgetContentView: View {
+    var entries: [user] // Your data model array
+
+    var body: some View {
+        // Define columns for your grid
+        let columns = [GridItem](repeating: GridItem(.flexible(), spacing: 4), count: 6) // Adjust for your grid size
+
+        LazyVGrid(columns: columns, spacing: 4) {
+            ForEach(entries) { entry in
+                GoalSquareView(percentage: entry.percentage)
+            }
+        }
+        .padding(.all)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Preview(as: .systemSmall) {
     StreakWidge()

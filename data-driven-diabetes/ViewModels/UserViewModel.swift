@@ -135,4 +135,26 @@ class UserViewModel: ObservableObject {
     func connectToDexcom() {
         mDexcomService.connectToDexcomPressed()
     }
+    
+    func getLast30DaysInRangePercentage(glucoseRecords: [GlucoseRecord]) -> [Double] {
+        var percentages = [Double]()
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        for dayOffset in 0..<30 {
+            guard let date = calendar.date(byAdding: .day, value: -dayOffset, to: Date()) else { continue }
+            let dateString = dateFormatter.string(from: date)
+            let currentDayRecords = glucoseRecords.filter { $0.displayTime.hasPrefix(dateString) }
+            if currentDayRecords.count > 0 {
+                let inRangeCount = currentDayRecords.filter { $0.value >= low && $0.value <= high }.count
+                let inRangePercentage = Double(inRangeCount) / Double(currentDayRecords.count) * 100
+                percentages.append(inRangePercentage)
+            } else {
+                percentages.append(0) // or skip appending if you prefer not to include days without records
+            }
+        }
+        return percentages.reversed() // Reverse to have the oldest day first, if needed
+    }
+
 }
