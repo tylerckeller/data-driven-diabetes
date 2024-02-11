@@ -40,7 +40,7 @@ class DexcomService {
         ) { (result: Result<(credential: OAuthSwiftCredential, response: OAuthSwiftResponse?, parameters: [String: Any]), OAuthSwiftError>) in
                 switch result {
                 case .success(let successData):
-                    UserManager.shared.saveTokens(accessToken: successData.credential.oauthToken, refreshToken: successData.credential.oauthRefreshToken)
+//                    UserManager.shared.saveTokens(accessToken: successData.credential.oauthToken, refreshToken: successData.credential.oauthRefreshToken)
                     print(successData)
                 case .failure(let error):
                     print(error.description)

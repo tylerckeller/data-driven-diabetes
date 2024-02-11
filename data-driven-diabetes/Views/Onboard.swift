@@ -34,7 +34,7 @@ struct Onboard: View {
                 }
             }
         }
-        .background(ant_ioColor.background(for: UserManager.shared.colorScheme))
+//        .background(ant_ioColor.background(for: UserManager.shared.colorScheme))
     }
 }
 

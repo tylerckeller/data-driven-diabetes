@@ -10,7 +10,6 @@ import Firebase
 
 struct ContentView: View {
     @ObservedObject var viewModel = UserViewModel()
-    @State var loggedIn = UserManager.shared.loggedIn
     
 
     var body: some View {
