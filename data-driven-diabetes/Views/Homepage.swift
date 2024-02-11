@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 
 struct DataPoint: Identifiable {
@@ -39,7 +40,6 @@ struct ScatterPlotView: View {
             }
             .background()
             .cornerRadius(38.5)
-            .shadow(color: .brown, radius: 2.5, x: 0, y: 4)
         }
     }
     
@@ -51,16 +51,27 @@ struct ScatterPlotView: View {
     }
 }
 
+func getDateMinusDays(_ days: Int) -> Date {
+    let calendar = Calendar.current
+    if let dateMinusDays = calendar.date(byAdding: .day, value: -days, to: Date()) {
+        return dateMinusDays
+    } else {
+        // Handle the error case or return the current date as a fallback
+        return Date()
+    }
+}
+
 struct Homepage: View {
     
     @ObservedObject var viewModel: UserViewModel
     @Environment(\.colorScheme) var colorScheme
     @ObservedObject var userManager = UserManager.shared
+    let counter = 0
     
     // Example data points for the scatter plot
     private var dataPoints: [DataPoint] {
         let maxValue = viewModel.glucoseRecords.map { $0.value }.max() ?? 1
-        let currentDayRecords = viewModel.getCurrentDateData()
+        let currentDayRecords = viewModel.getSpecificDayData(for: viewModel.currentDate)
         return currentDayRecords.enumerated().map { index, record in
             let scaledX = CGFloat(index) / CGFloat(currentDayRecords.count - 1)
             let scaledY = -1 * ((CGFloat(record.value) / CGFloat(maxValue) - 1))
@@ -80,7 +91,7 @@ struct Homepage: View {
     }
     
     var date: String {
-        let currentDate = Date()
+        let currentDate = viewModel.currentDate
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd" // Day and month
         return formatter.string(from: currentDate)
@@ -96,13 +107,15 @@ struct Homepage: View {
                         .frame(width: geometry.size.width, height: 130)
                     HStack{
                         Text(greetingBasedOnTimeOfDay+",\n"+viewModel.name)
-                            .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
+                            .font(.custom("IowanOldStyle-Bold", fixedSize: 30))
                             .padding(.leading, 30)
                             .foregroundColor(ant_ioColor.homepage_header_text(for: colorScheme))
                         Spacer()
                         Button(action: {
                             // Action for left arrow button
                             print("Polling for previous day's data")
+                            viewModel.moveDate(by: -1)
+
                         }){
                             Image(systemName: "chevron.left") // Left arrow
                                 .font(.body)
@@ -115,6 +128,7 @@ struct Homepage: View {
                         Button(action: {
                             // Action for left arrow button
                             print("Polling for next day's data")
+                            viewModel.moveDate(by: 1)
                         }){
                             Image(systemName: "chevron.right") // Left arrow
                                 .font(.body)
@@ -138,7 +152,7 @@ struct Homepage: View {
                         Text(String(format: "%.2f", viewModel.getCurrentDateInRangePercentage()) + "%")
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
                             .foregroundColor(ant_ioColor.text(for: colorScheme))
-                        Text("  in range")
+                        Text(" in range")
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                             .foregroundColor(ant_ioColor.text(for: colorScheme))
                         Color.clear
@@ -150,7 +164,7 @@ struct Homepage: View {
                             Text(" mg/dl")
                                 .font(.custom("IowanOldStyle-Bold", fixedSize: 25)) // Smaller font for the unit
                                 .foregroundColor(ant_ioColor.text(for: colorScheme))
-                            Text("  average")
+                            Text(" average")
                                 .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                                 .foregroundColor(ant_ioColor.text(for: colorScheme))
                         }
