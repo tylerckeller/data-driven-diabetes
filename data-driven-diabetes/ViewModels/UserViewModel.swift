@@ -21,7 +21,6 @@ class UserViewModel: ObservableObject {
             self.glucoseRecords = []
         }
     }
-    
 
     func getAllEGVs() {
         var lastValue = 100 // Starting value for glucose level
