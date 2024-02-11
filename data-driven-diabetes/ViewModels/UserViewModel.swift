@@ -12,25 +12,12 @@ class UserViewModel: ObservableObject {
     @ObservedObject var userManager = UserManager.shared
     private var LOG_TAG = "LOG: ViewModel"
     @Published var glucoseRecords: [GlucoseRecord] = []
-    @Published var loading: Bool = false {
-        didSet {
-            if oldValue == false && loading == true {
-                self.clear()
-                self.refresh()
-                loading = false
-            }
-        }
-    }
     
     init() {
         self.getAllEGVs()
     }
     
     private let mDexcomService = DexcomService();
-    
-    func refresh() -> Void {
-        self.getAllEGVs()
-    }
     
     func clear() -> Void {
         DispatchQueue.main.async {
@@ -68,6 +55,7 @@ class UserViewModel: ObservableObject {
                     self.glucoseRecords.append(record)
                 }
             }
+            print(currentDate)
             // Increment currentDate by 1 day
             guard let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) else { break }
             currentDate = nextDay
