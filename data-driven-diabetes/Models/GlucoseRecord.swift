@@ -15,14 +15,14 @@ struct GlucoseRecord: Codable, Identifiable {
     var systemTime: String
     // datetime
     var displayTime: String
-    var transmitterId: String
-    var transmitterTicks: Int64
+//    var transmitterId: String
+//    var transmitterTicks: Int64
     var value: Int
-    var trend: String
-    var trendRate: Int
-    var unit: String
-    var rateUnit: String
-    var displayDevice: String
-    var transmitterGeneration: String
+//    var trend: String
+//    var trendRate: Int
+//    var unit: String
+//    var rateUnit: String
+//    var displayDevice: String
+//    var transmitterGeneration: String
 }
 

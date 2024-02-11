@@ -9,22 +9,25 @@ import SwiftUI
 import FirebaseCore
 import OAuthSwift
 
+
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey  : Any] = [:]) -> Bool {
-          if url.host == "oauth-callback" {
-              OAuthSwift.handle(url: url)
-            }
-    FirebaseApp.configure()
-    return true
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let incomingURL = userActivity.webpageURL {
+            // Handle the URL if it's your OAuth redirect
+            OAuthSwift.handle(url: incomingURL)
+            return true
+        }
+        return false
     }
+
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-            guard let url = URLContexts.first?.url else {
-                return
-            }
-            if url.host == "oauth-callback" {
-                OAuthSwift.handle(url: url)
-            }
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        if url.host == "oauth-callback" {
+            OAuthSwift.handle(url: url)
+        }
     }
 }
 
@@ -34,7 +37,7 @@ struct data_driven_diabetesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(userManager: UserManager.shared)
+            ContentView()
         }
     }
 }

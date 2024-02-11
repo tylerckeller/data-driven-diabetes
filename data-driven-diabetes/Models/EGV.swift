@@ -9,8 +9,8 @@ import Foundation
 
 struct EGV: Codable, Identifiable {
     var id: String { userId }
-    var recordType: String
-    var recordVersion: String
+//    var recordType: String
+//    var recordVersion: String
     var userId: String
     var records: [ GlucoseRecord ]
 }
