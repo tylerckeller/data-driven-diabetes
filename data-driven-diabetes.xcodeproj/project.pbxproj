@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD33748E2B786C7D00FE7A9C /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD33748D2B786C7D00FE7A9C /* SwiftUIView.swift */; };
 		ADFD03D02B77C958007CFF53 /* data_driven_diabetesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03CF2B77C958007CFF53 /* data_driven_diabetesApp.swift */; };
 		ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD03D12B77C958007CFF53 /* ContentView.swift */; };
 		ADFD03D42B77C95A007CFF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADFD03D32B77C95A007CFF53 /* Assets.xcassets */; };
@@ -84,7 +83,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AD33748D2B786C7D00FE7A9C /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		ADFD03CC2B77C958007CFF53 /* data-driven-diabetes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "data-driven-diabetes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFD03CF2B77C958007CFF53 /* data_driven_diabetesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_driven_diabetesApp.swift; sourceTree = "<group>"; };
 		ADFD03D12B77C958007CFF53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */,
 				F52C1A672B78059B00B12013 /* Homepage.swift */,
 				F52C1A862B78517400B12013 /* TitleScreen.swift */,
-				AD33748D2B786C7D00FE7A9C /* SwiftUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,7 +414,6 @@
 			files = (
 				ADFD03E82B77DA5B007CFF53 /* UserManager.swift in Sources */,
 				ADFD03F52B77E540007CFF53 /* UserViewModel.swift in Sources */,
-				AD33748E2B786C7D00FE7A9C /* SwiftUIView.swift in Sources */,
 				F52C1A872B78517400B12013 /* TitleScreen.swift in Sources */,
 				ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */,
 				ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */,

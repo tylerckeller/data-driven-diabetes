@@ -23,6 +23,7 @@ class UserViewModel: ObservableObject {
     private let mDexcomService = DexcomService();
     var high = 180
     var low = 70
+    var streak = 0
     
     func clear() -> Void {
         DispatchQueue.main.async {
@@ -70,14 +71,27 @@ class UserViewModel: ObservableObject {
     }
     
     func preprocessGoalValues() {
-        let uniqueDays = Set(glucoseRecords.map { $0.displayTime.prefix(10) }) // Extract unique days from glucoseRecords
-        for day in uniqueDays {
+        let uniqueDays = Array(Set(glucoseRecords.map { $0.displayTime.prefix(10) })) // Extract unique days from glucoseRecords
+        var streakBroken = false
+        for day in uniqueDays.reversed() {
             let dayRecords = glucoseRecords.filter { $0.displayTime.hasPrefix(day) } // Filter records for the specific day
-            let inRangeCount = dayRecords.filter { $0.value >= 70 && $0.value <= 180 }.count
+            let inRangeCount = dayRecords.filter { $0.value >= low && $0.value <= high }.count
             let inRangePercentage = Double(inRangeCount) / Double(dayRecords.count) * 100
             let averageValue = dayRecords.reduce(0, { $0 + $1.value }) / dayRecords.count
+            if inRangePercentage >= 70 && averageValue >= 70 && averageValue <= 180 && !streakBroken {
+                streak += 1
+            } else {
+                streakBroken = true
+            }
             print("Date: \(day), In Range Percentage: \(inRangePercentage)%, Average Value: \(averageValue)")
         }
+    }
+    
+    func getCurrentDateData() -> [GlucoseRecord] {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return glucoseRecords.filter { $0.displayTime.hasPrefix(dateFormatter.string(from: currentDate)) }
     }
     
     func connectToDexcom() {
