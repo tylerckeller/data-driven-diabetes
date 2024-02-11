@@ -21,6 +21,7 @@ class UserViewModel: ObservableObject {
     @Published var high = 180
     @Published var low = 70
     @Published var name = ""
+    @Published var currentDate: Date = Date()
     var streak = 0
 
     var goalDict: [String: Goal] = [:]
@@ -95,6 +96,20 @@ class UserViewModel: ObservableObject {
         return glucoseRecords.filter { $0.displayTime.hasPrefix(dateFormatter.string(from: currentDate)) }
     }
     
+    func getSpecificDayData(for day: Date) -> [GlucoseRecord] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dayString = dateFormatter.string(from: day)
+        return glucoseRecords.filter { $0.displayTime.hasPrefix(dayString) }
+    }
+    
+    func moveDate(by days: Int) {
+        if let newDate = Calendar.current.date(byAdding: .day, value: days, to: currentDate) {
+            currentDate = newDate
+            // Here, you would also trigger fetching of data for the new currentDate,
+            // or the view depending on this will automatically update if it observes this property.
+        }
+    }
     func getCurrentDateInRangePercentage() -> Double {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
