@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct ant_ioColor {
-    @ObservedObject var userManager = UserManager.shared
     
     // colors related to login screens
     // no light and dark modes for these (because they are one time pages)
@@ -41,7 +40,6 @@ struct ant_ioColor {
     // this is the actual color of the bubble at the top
     // orange and then dark brown
     static func homepage_header(for colorScheme: SwiftUI.ColorScheme) -> Color {
-        print("Current color scheme for text color: \(colorScheme)")
         switch colorScheme {
         case .light:
             return Color(red: 0.941, green: 0.667, blue: 0.345) // #f0aa58
@@ -105,7 +103,7 @@ struct ant_ioColor {
         return Color(red: 0.925, green: 0.729, blue: 0.729) // #ecbaba
     }
     static func graph_green(for colorScheme: SwiftUI.ColorScheme) -> Color {
-        return Color(red: 0.796, green: 0.886, blue: 0.773) // #cbe2c5
+        return Color(red: 0.796, green: 0.886, blue: 0.773) // 
     }
     static func graph_yellow(for colorScheme: SwiftUI.ColorScheme) -> Color {
         return Color(red: 0.961, green: 0.855, blue: 0.647) // #f5daa5
