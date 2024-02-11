@@ -11,8 +11,6 @@ struct Onboard: View {
     @ObservedObject var viewModel: UserViewModel
     @ObservedObject var userManager = UserManager.shared
     @Environment(\.colorScheme) var colorScheme
-    @State private var email = ""
-    @State private var password = ""
     @State private var showInvalidAlert = false
     var onLogin: () -> Void // new closure parameter
     
@@ -20,6 +18,7 @@ struct Onboard: View {
         HStack {
             Spacer()
             VStack {
+                Spacer()
                 Spacer()
                 Button(action: {
                     viewModel.connectToDexcom()

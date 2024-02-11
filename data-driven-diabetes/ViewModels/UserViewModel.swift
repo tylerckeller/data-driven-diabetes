@@ -18,12 +18,12 @@ class UserViewModel: ObservableObject {
     @ObservedObject var userManager = UserManager.shared
     private var LOG_TAG = "LOG: ViewModel"
     @Published var glucoseRecords: [GlucoseRecord] = []
+    @Published var high = 180
+    @Published var low = 70
+    var streak = 0
 
     var goalDict: [String: Goal] = [:]
     private let mDexcomService = DexcomService();
-    var high = 180
-    var low = 70
-    var streak = 0
     
     func clear() -> Void {
         DispatchQueue.main.async {

@@ -58,12 +58,8 @@ struct Homepage: View {
     
     // Example data points for the scatter plot
     private var dataPoints: [DataPoint] {
-        let glucoseRecords = viewModel.glucoseRecords
-        let maxValue = glucoseRecords.map { $0.value }.max() ?? 1
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let currentDayRecords = glucoseRecords.filter { $0.displayTime.hasPrefix(dateFormatter.string(from: currentDate)) }
+        let maxValue = viewModel.glucoseRecords.map { $0.value }.max() ?? 1
+        let currentDayRecords = viewModel.getCurrentDateData()
         return currentDayRecords.enumerated().map { index, record in
             let scaledX = CGFloat(index) / CGFloat(currentDayRecords.count - 1)
             let scaledY = CGFloat(record.value) / CGFloat(maxValue)
