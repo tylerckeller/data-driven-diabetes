@@ -9,19 +9,26 @@ import Foundation
 import SwiftUI
 import GameplayKit
 
+struct Goal {
+    var inRange: Float
+    var average: Int
+}
+
 class UserViewModel: ObservableObject {
     @ObservedObject var userManager = UserManager.shared
     private var LOG_TAG = "LOG: ViewModel"
     @Published var glucoseRecords: [GlucoseRecord] = []
-    
+
+    var goalDict: [String: Goal] = [:]
     private let mDexcomService = DexcomService();
+    var high = 180
+    var low = 70
     
     func clear() -> Void {
         DispatchQueue.main.async {
             self.glucoseRecords = []
         }
     }
-    
 
     func getAllEGVs() {
         var lastValue = 100 // Starting value for glucose level
@@ -48,7 +55,7 @@ class UserViewModel: ObservableObject {
                     // Adjust value by a random amount between 0 and 15, ensuring it does not go below 70 or above 180
                     let change = changeFunc.nextInt()
                     lastValue += change
-                    lastValue = min(max(lastValue, 70), 180) // Ensure value is within bounds
+                    lastValue = min(max(lastValue, 50), 250) // Ensure value is within bounds
 
                     let record = GlucoseRecord(recordId: recordId, systemTime: systemTime, displayTime: displayTime, value: lastValue)
                     self.glucoseRecords.append(record)
@@ -60,6 +67,17 @@ class UserViewModel: ObservableObject {
             currentDate = nextDay
         }
         print("Finished")
+    }
+    
+    func preprocessGoalValues() {
+        let uniqueDays = Set(glucoseRecords.map { $0.displayTime.prefix(10) }) // Extract unique days from glucoseRecords
+        for day in uniqueDays {
+            let dayRecords = glucoseRecords.filter { $0.displayTime.hasPrefix(day) } // Filter records for the specific day
+            let inRangeCount = dayRecords.filter { $0.value >= 70 && $0.value <= 180 }.count
+            let inRangePercentage = Double(inRangeCount) / Double(dayRecords.count) * 100
+            let averageValue = dayRecords.reduce(0, { $0 + $1.value }) / dayRecords.count
+            print("Date: \(day), In Range Percentage: \(inRangePercentage)%, Average Value: \(averageValue)")
+        }
     }
     
     func connectToDexcom() {

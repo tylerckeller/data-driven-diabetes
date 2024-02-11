@@ -17,22 +17,30 @@ struct Onboard: View {
     var onLogin: () -> Void // new closure parameter
     
     var body: some View {
-        VStack {
+        HStack {
             Spacer()
-            Button(action: {
-                viewModel.connectToDexcom()
-                viewModel.getAllEGVs()
-                onLogin()
-            }) {
-                ZStack {
-                    Text("Connect to Dexcom")
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .background(Color.green)
+            VStack {
+                Spacer()
+                Button(action: {
+                    viewModel.connectToDexcom()
+                    viewModel.getAllEGVs()
+                    viewModel.preprocessGoalValues()
+                    onLogin()
+                }) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.green)
+                            .frame(width: 190, height: 80)
+                        Text("Connect to Dexcom")
+                            .font(.title3)
+                            .foregroundColor(.white)
+                    }
                 }
+                Spacer()
             }
             Spacer()
         }
-            background(ant_ioColor.login_background(for: colorScheme))
+        .background(ant_ioColor.login_background(for: colorScheme))
     }
 }
+
