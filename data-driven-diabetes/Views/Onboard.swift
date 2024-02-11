@@ -25,17 +25,14 @@ struct Onboard: View {
                 onLogin()
             }) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.green)
-                        .frame(width: 160, height: 80)
                     Text("Connect to Dexcom")
                         .font(.title3)
                         .foregroundColor(.white)
+                        .background(Color.green)
                 }
             }
             Spacer()
         }
-//        .background(ant_ioColor.background(for: UserManager.shared.colorScheme))
+            background(ant_ioColor.login_background(for: colorScheme))
     }
 }
-
