@@ -20,6 +20,7 @@ class UserViewModel: ObservableObject {
     @Published var glucoseRecords: [GlucoseRecord] = []
     @Published var high = 180
     @Published var low = 70
+    @Published var name = ""
     var streak = 0
 
     var goalDict: [String: Goal] = [:]
