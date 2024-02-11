@@ -80,13 +80,14 @@ class UserViewModel: ObservableObject {
             let inRangeCount = dayRecords.filter { $0.value >= low && $0.value <= high }.count
             let inRangePercentage = Double(inRangeCount) / Double(dayRecords.count) * 100
             let averageValue = dayRecords.reduce(0, { $0 + $1.value }) / dayRecords.count
-            if inRangePercentage >= 70 && averageValue >= 70 && averageValue <= 180 && !streakBroken {
+            if (inRangePercentage > 0.70) && !streakBroken {
                 streak += 1
             } else {
                 streakBroken = true
             }
             print("Date: \(day), In Range Percentage: \(inRangePercentage)%, Average Value: \(averageValue)")
         }
+        UserManager.shared.saveStreak(streak: streak)
     }
     
     func getCurrentDateData() -> [GlucoseRecord] {
@@ -135,4 +136,5 @@ class UserViewModel: ObservableObject {
     func connectToDexcom() {
         mDexcomService.connectToDexcomPressed()
     }
+
 }

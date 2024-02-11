@@ -8,24 +8,44 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
+struct StreakWidgeEntryView: View {
+    var entry: Provider.Entry
+    
+    var body: some View {
+        VStack {
+            Text("Date: \(entry.date)")
+            Text("Streak: \(entry.streak)")
+        }
     }
+}
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
+struct Provider: TimelineProvider, AppIntentTimelineProvider {
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
     }
     
+    func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
+    }
+    
+    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+        guard let userDefaults = UserDefaults(suiteName: "group.com.data-driven-diabetes") else {
+            return SimpleEntry(date: Date(), streak: 0)
+        }
+        
+        let streak = userDefaults.integer(forKey: "streak")
+        return SimpleEntry(date: Date(), streak: streak)
+    }
+    
+    func placeholder(in context: Context) -> SimpleEntry {
+        return SimpleEntry(date: Date(), streak: 0)
+    }
+
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
+        if let userDefaults = UserDefaults(suiteName: "group.com.data-driven-diabetes") {
+            let streak = userDefaults.integer(forKey: "streak")
+            
+            entries.append(SimpleEntry(date: Date(), streak: streak))
         }
 
         return Timeline(entries: entries, policy: .atEnd)
@@ -34,22 +54,9 @@ struct Provider: AppIntentTimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationAppIntent
+    let streak: Int
 }
 
-struct StreakWidgeEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
-    }
-}
 
 struct StreakWidge: Widget {
     let kind: String = "StreakWidge"
@@ -60,25 +67,4 @@ struct StreakWidge: Widget {
                 .containerBackground(.fill.tertiary, for: .widget)
         }
     }
-}
-
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
-}
-
-#Preview(as: .systemSmall) {
-    StreakWidge()
-} timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
 }
