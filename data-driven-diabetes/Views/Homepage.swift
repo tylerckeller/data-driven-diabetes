@@ -172,3 +172,7 @@ struct Homepage: View {
         .background(ant_ioColor.homepage_background(for: colorScheme))
     }
 }
+
+#Preview {
+    Homepage(viewModel: UserViewModel())
+}
