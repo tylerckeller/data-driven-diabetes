@@ -88,7 +88,7 @@ struct Homepage: View {
     var date: String {
         let currentDate = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM" // Day and month
+        formatter.dateFormat = "MM/dd" // Day and month
         return formatter.string(from: currentDate)
     }
     
@@ -106,29 +106,11 @@ struct Homepage: View {
                             .padding(.leading, 30)
                             .foregroundColor(ant_ioColor.homepage_header_text(for: colorScheme))
                         Spacer()
-                        Button(action: {
-                                // Action for left arrow button
-                                print("Polling for previous day's data")
-                        }){
-                            Image(systemName: "chevron.left") // Left arrow
-                            .font(.body)
-                            .foregroundColor(ant_ioColor.arrows(for: colorScheme))
-                        }
 
                         Text(date)
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                             .foregroundColor(ant_ioColor.date_text(for: colorScheme))
-                        Button(action: {
-                                // Action for left arrow button
-                                print("Polling for next day's data")
-                        }){
-                            Image(systemName: "chevron.right") // Left arrow
-                            .font(.body)
-                            .foregroundColor(ant_ioColor.arrows(for: colorScheme))
                             .padding(.trailing, 30)
-
-                        }
-                        
                     }
                 }
             }

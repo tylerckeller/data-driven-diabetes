@@ -45,7 +45,7 @@ class UserViewModel: ObservableObject {
         var currentDate = threeMonthAgo
         let endDate = Date() // Capture the end date to avoid processing beyond today.
         let random = GKRandomSource()
-        let changeFunc = GKGaussianDistribution(randomSource: random, lowestValue: -15, highestValue: 15)
+        let changeFunc = GKGaussianDistribution(randomSource: random, lowestValue: -10, highestValue: 10)
         while currentDate <= endDate {
             for hour in 0..<24 {
                 for minute in stride(from: 0, to: 60, by: 5) {
