@@ -67,8 +67,8 @@ struct Onboard: View {
                     viewModel.getAllEGVs()
                     viewModel.preprocessGoalValues()
                     onLogin()
-                    viewModel.low = Int(highBloodSugar) ?? 180
-                    viewModel.high = Int(lowBloodSugar) ?? 70
+                    viewModel.low = Int(lowBloodSugar) ?? 70
+                    viewModel.high = Int(highBloodSugar) ?? 180
                     viewModel.name = firstName
                 }) {
                     ZStack {

@@ -63,7 +63,7 @@ struct Homepage: View {
         let currentDayRecords = viewModel.getCurrentDateData()
         return currentDayRecords.enumerated().map { index, record in
             let scaledX = CGFloat(index) / CGFloat(currentDayRecords.count - 1)
-            let scaledY = CGFloat(record.value) / CGFloat(maxValue)
+            let scaledY = -1 * ((CGFloat(record.value) / CGFloat(maxValue) - 1))
             print("X: \(scaledX), Y: \(scaledY)")
             return DataPoint(x: scaledX, y: scaledY)
         }
