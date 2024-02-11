@@ -24,6 +24,7 @@ struct Onboard: View {
                 Button(action: {
                     viewModel.connectToDexcom()
                     viewModel.getAllEGVs()
+                    viewModel.preprocessGoalValues()
                     onLogin()
                 }) {
                     ZStack {

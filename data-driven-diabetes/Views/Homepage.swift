@@ -57,14 +57,19 @@ struct Homepage: View {
     @Environment(\.colorScheme) var colorScheme
     
     // Example data points for the scatter plot
-    private let dataPoints = [
-        DataPoint(x: 0.2, y: 0.8),
-        DataPoint(x: 0.5, y: 0.5),
-        DataPoint(x: 0.8, y: 0.2)
-    ]
+    private var dataPoints: [DataPoint] {
+        let viewModel = UserViewModel()
+        let glucoseRecords = viewModel.glucoseRecords
+        let maxValue = glucoseRecords.map { $0.value }.max() ?? 1
+        return glucoseRecords.enumerated().map { index, record in
+            let scaledX = CGFloat(index) / CGFloat(glucoseRecords.count - 1)
+            let scaledY = CGFloat(record.value) / CGFloat(maxValue)
+            print("X: \(scaledX), Y: \(scaledY)")
+            return DataPoint(x: scaledX, y: scaledY)
+        }
+    }
     
     @ObservedObject var userManager = UserManager.shared
-    // Define your data points using the DataPoint struct
     
     
     var greetingBasedOnTimeOfDay: String {
@@ -127,7 +132,7 @@ struct Homepage: View {
             .frame(height: 130)
             
             ScatterPlotView(dataPoints: dataPoints)
-                .frame(width:.infinity-40, height: 210)
+                .frame(maxWidth: .infinity, height: 210)
                 .padding(20)
             HStack{
                 Spacer()
