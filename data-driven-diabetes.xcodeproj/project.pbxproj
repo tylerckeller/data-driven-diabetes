@@ -45,7 +45,6 @@
 		ADFD04282B77E8CA007CFF53 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04272B77E8CA007CFF53 /* FirebaseRemoteConfigSwift */; };
 		ADFD042A2B77E8CA007CFF53 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04292B77E8CA007CFF53 /* FirebaseStorage */; };
 		ADFD042C2B77E8CA007CFF53 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD042B2B77E8CA007CFF53 /* FirebaseStorageCombine-Community */; };
-		ADFD04302B77F27A007CFF53 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD042F2B77F27A007CFF53 /* Home.swift */; };
 		ADFD04332B77F58C007CFF53 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFD04322B77F58C007CFF53 /* OAuthSwift */; };
 		F52C1A682B78059B00B12013 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C1A672B78059B00B12013 /* Homepage.swift */; };
 		F52C1A702B782D0100B12013 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C1A6F2B782D0100B12013 /* WidgetKit.framework */; };
@@ -96,7 +95,6 @@
 		ADFD03F12B77DD9A007CFF53 /* DexcomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexcomService.swift; sourceTree = "<group>"; };
 		ADFD03F32B77E0B7007CFF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ADFD03F42B77E540007CFF53 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		ADFD042F2B77F27A007CFF53 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ADFD04342B780EF1007CFF53 /* data-driven-diabetes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "data-driven-diabetes.entitlements"; sourceTree = "<group>"; };
 		F52C1A672B78059B00B12013 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		F52C1A6D2B782D0100B12013 /* StreakWidgeExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StreakWidgeExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +215,6 @@
 			children = (
 				ADFD03E92B77DB03007CFF53 /* Colors */,
 				ADFD03EC2B77DB8F007CFF53 /* Onboard.swift */,
-				ADFD042F2B77F27A007CFF53 /* Home.swift */,
 				F52C1A672B78059B00B12013 /* Homepage.swift */,
 			);
 			path = Views;
@@ -414,7 +411,6 @@
 			files = (
 				ADFD03E82B77DA5B007CFF53 /* UserManager.swift in Sources */,
 				ADFD03F52B77E540007CFF53 /* UserViewModel.swift in Sources */,
-				ADFD04302B77F27A007CFF53 /* Home.swift in Sources */,
 				ADFD03D22B77C958007CFF53 /* ContentView.swift in Sources */,
 				ADFD03EB2B77DB1C007CFF53 /* Color.swift in Sources */,
 				ADFD03E12B77D69E007CFF53 /* GlucoseRecord.swift in Sources */,

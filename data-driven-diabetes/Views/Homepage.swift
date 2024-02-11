@@ -53,6 +53,7 @@ struct ScatterPlotView: View {
 
 struct Homepage: View {
     
+    @ObservedObject var viewModel: UserViewModel
     @Environment(\.colorScheme) var colorScheme
     
     // Example data points for the scatter plot
@@ -165,8 +166,4 @@ struct Homepage: View {
         }
         .background(ant_ioColor.homepage_background(for: colorScheme))
     }
-}
-
-#Preview {
-    Homepage()
 }

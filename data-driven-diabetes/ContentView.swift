@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         Group {
 //            if loggedIn {
-            Home(viewModel: UserViewModel())
+            Homepage(viewModel: UserViewModel())
 //            } else {
 //                Onboard(viewModel: UserViewModel(), onLogin: { loggedIn = true })
 //            }
