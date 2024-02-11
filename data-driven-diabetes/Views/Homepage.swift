@@ -185,7 +185,7 @@ struct Homepage: View {
                         Color.clear
                             .frame(height: 1)
                         HStack {
-                            Text("11")
+                            Text("\(viewModel.streak)")
                                 .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
                                 .foregroundColor(ant_ioColor.text(for: colorScheme))
                             Text("  day streak")

@@ -22,7 +22,7 @@ class UserViewModel: ObservableObject {
     @Published var low = 70
     @Published var name = ""
     @Published var currentDate: Date = Date()
-    var streak = 0
+    @Published var streak = 0
 
     var goalDict: [String: Goal] = [:]
     private let mDexcomService = DexcomService();
