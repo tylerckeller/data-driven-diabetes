@@ -101,7 +101,9 @@ class UserViewModel: ObservableObject {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let currentDayRecords = glucoseRecords.filter { $0.displayTime.hasPrefix(dateFormatter.string(from: currentDate)) }
         let inRangeCount = currentDayRecords.filter { $0.value >= low && $0.value <= high }.count
+        print(inRangeCount)
         let inRangePercentage = Double(inRangeCount) / Double(currentDayRecords.count) * 100
+        print(inRangePercentage)
         return inRangePercentage
     }
     
