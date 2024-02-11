@@ -55,6 +55,7 @@ struct Homepage: View {
     
     @ObservedObject var viewModel: UserViewModel
     @Environment(\.colorScheme) var colorScheme
+    @ObservedObject var userManager = UserManager.shared
     
     // Example data points for the scatter plot
     private var dataPoints: [DataPoint] {
@@ -67,9 +68,6 @@ struct Homepage: View {
             return DataPoint(x: scaledX, y: scaledY)
         }
     }
-    
-    @ObservedObject var userManager = UserManager.shared
-    
     
     var greetingBasedOnTimeOfDay: String {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -153,6 +151,3 @@ struct Homepage: View {
         .background(ant_ioColor.homepage_background(for: colorScheme))
     }
 }
-
-
-
