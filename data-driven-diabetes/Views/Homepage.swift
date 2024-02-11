@@ -132,7 +132,7 @@ struct Homepage: View {
             .frame(height: 130)
             
             ScatterPlotView(dataPoints: dataPoints)
-                .frame(maxWidth: .infinity, height: 210)
+                .frame(width: .infinity, height: 210)
                 .padding(20)
             HStack{
                 Spacer()
