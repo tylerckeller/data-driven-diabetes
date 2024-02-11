@@ -28,7 +28,7 @@ struct TitleScreen: View {
                     }
                     
                     
-                    .frame(width: 1000, alignment: .center) // This might be too large depending on your design.
+                    .frame(width: 100, alignment: .center) 
                     .background(ant_ioColor.login_background(for: colorScheme))
                     .font(.custom("IowanOldStyle-Bold", fixedSize: 100))
                     .foregroundColor(ant_ioColor.title(for: colorScheme))
