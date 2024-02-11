@@ -94,6 +94,26 @@ class UserViewModel: ObservableObject {
         return glucoseRecords.filter { $0.displayTime.hasPrefix(dateFormatter.string(from: currentDate)) }
     }
     
+    func getCurrentDateInRangePercentage() -> Double {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDayRecords = glucoseRecords.filter { $0.displayTime.hasPrefix(dateFormatter.string(from: currentDate)) }
+        let inRangeCount = currentDayRecords.filter { $0.value >= low && $0.value <= high }.count
+        let inRangePercentage = Double(inRangeCount) / Double(currentDayRecords.count) * 100
+        return inRangePercentage
+    }
+    
+    func getCurrentDateAverageGlucoseValue() -> Double {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDayRecords = glucoseRecords.filter { $0.displayTime.hasPrefix(dateFormatter.string(from: currentDate)) }
+        let sumOfValues = currentDayRecords.reduce(0.0, { $0 + Double($1.value) })
+        let averageValue = sumOfValues / Double(currentDayRecords.count)
+        return averageValue
+    }
+    
     func connectToDexcom() {
         mDexcomService.connectToDexcomPressed()
     }
