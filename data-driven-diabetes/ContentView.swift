@@ -10,13 +10,15 @@ import Firebase
 
 struct ContentView: View {
     @ObservedObject var viewModel = UserViewModel()
-    @State var loggedIn = UserManager.shared.isLoggedIn
-    
+    @State var loggedIn = false
+    @State var welcomed = false
 
     var body: some View {
         Group {
-            if loggedIn {
+            if loggedIn && welcomed {
                 Homepage(viewModel: viewModel)
+            } else if !welcomed && !loggedIn {
+                TitleScreen(viewModel: viewModel, onWelcome: { welcomed = true })
             } else {
                 Onboard(viewModel: viewModel, onLogin: { loggedIn = true })
             }
