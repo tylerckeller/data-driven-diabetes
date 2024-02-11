@@ -117,32 +117,37 @@ struct Homepage: View {
                 Spacer()
                     .frame(width: 20)
                 VStack (alignment: .leading){
-                    
-                    Text("88%")
-                        .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
-                        .foregroundColor(ant_ioColor.text(for: colorScheme))
-                    Text("  in range")
-                        .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
-                        .foregroundColor(ant_ioColor.text(for: colorScheme))
-                    Color.clear
-                            .frame(height: 1)
-                    Text("70")
-                        .font(.custom("IowanOldStyle-Bold", fixedSize: 32)) // Larger font for the number
-                        .foregroundColor(ant_ioColor.text(for: colorScheme)) +
-                    Text(" mg/dl")
-                        .font(.custom("IowanOldStyle-Bold", fixedSize: 25)) // Smaller font for the unit
-                        .foregroundColor(ant_ioColor.text(for: colorScheme))
-                    Text("  average")
-                        .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
-                        .foregroundColor(ant_ioColor.text(for: colorScheme))
-                    Color.clear
-                            .frame(height: 1)
-                    Text("11")
-                        .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
-                        .foregroundColor(ant_ioColor.text(for: colorScheme))
-                    Text("  day streak")
-                        .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
-                        .foregroundColor(ant_ioColor.text(for: colorScheme))
+                    VStack {
+                        Text(String(format: "%.2f", viewModel.getCurrentDateInRangePercentage()) + "%")
+                            .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
+                            .foregroundColor(ant_ioColor.text(for: colorScheme))
+                        Text("  in range")
+                            .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
+                            .foregroundColor(ant_ioColor.text(for: colorScheme))
+                        Color.clear
+                                .frame(height: 1)
+                        HStack {
+                            Text(String(format: "%.2f", viewModel.getCurrentDateAverageGlucoseValue()))
+                                .font(.custom("IowanOldStyle-Bold", fixedSize: 32)) // Larger font for the number
+                                .foregroundColor(ant_ioColor.text(for: colorScheme))
+                            Text(" mg/dl")
+                                .font(.custom("IowanOldStyle-Bold", fixedSize: 25)) // Smaller font for the unit
+                                .foregroundColor(ant_ioColor.text(for: colorScheme))
+                            Text("  average")
+                                .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
+                                .foregroundColor(ant_ioColor.text(for: colorScheme))
+                        }
+                        Color.clear
+                                .frame(height: 1)
+                        HStack {
+                            Text("11")
+                                .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
+                                .foregroundColor(ant_ioColor.text(for: colorScheme))
+                            Text("  day streak")
+                                .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
+                                .foregroundColor(ant_ioColor.text(for: colorScheme))
+                        }
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
