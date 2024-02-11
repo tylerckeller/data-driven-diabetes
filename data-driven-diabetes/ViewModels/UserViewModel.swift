@@ -21,7 +21,7 @@ class UserViewModel: ObservableObject {
     @Published var high = 180
     @Published var low = 70
     @Published var name = ""
-    var streak = 0
+    @Published var streak = 0
 
     var goalDict: [String: Goal] = [:]
     private let mDexcomService = DexcomService();
@@ -57,7 +57,7 @@ class UserViewModel: ObservableObject {
                     // Adjust value by a random amount between 0 and 15, ensuring it does not go below 70 or above 180
                     let change = changeFunc.nextInt()
                     lastValue += change
-                    lastValue = min(max(lastValue, 50), 250) // Ensure value is within bounds
+                    lastValue = min(max(lastValue, 60), 200) // Ensure value is within bounds
 
                     let record = GlucoseRecord(recordId: recordId, systemTime: systemTime, displayTime: displayTime, value: lastValue)
                     self.glucoseRecords.append(record)

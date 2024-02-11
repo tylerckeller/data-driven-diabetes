@@ -16,9 +16,14 @@ struct DataPoint: Identifiable {
 
 struct ScatterPlotView: View {
     let dataPoints: [DataPoint] // Use DataPoint structs
+    @ObservedObject var viewModel: UserViewModel
     let bar3: CGFloat = 1
-    let bar2: CGFloat = 0.7
-    let bar1: CGFloat = 0.25
+    var bar2: CGFloat {
+        return -1 * ((CGFloat(viewModel.low) / 400) - 1)
+    }
+    var bar1: CGFloat {
+        return -1 * ((CGFloat(viewModel.high) / 400) - 1)
+    }
     let bar0: CGFloat = 0
     
     var body: some View {
@@ -36,6 +41,16 @@ struct ScatterPlotView: View {
                         .frame(width: 3, height: 3)
                         .position(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
                 }
+                
+                // Adding scales
+                Text("400 mg/dl")
+                    .position(x: geometry.size.width / 7, y: 18)
+                Text("\(viewModel.high) mg/dl")
+                    .position(x: geometry.size.width / 8, y: geometry.size.height * bar1)
+                    .foregroundColor(.yellow) // Shade the area above high yellow
+                Text("\(viewModel.low) mg/dl")
+                    .position(x: geometry.size.width / 8, y: geometry.size.height * bar2)
+                    .foregroundColor(.green) // Shade the area below low green
             }
             .background()
             .cornerRadius(38.5)
@@ -50,7 +65,6 @@ struct ScatterPlotView: View {
             .position(x: size.width / 2, y: size.height * yPosition)
     }
 }
-
 struct Homepage: View {
     
     @ObservedObject var viewModel: UserViewModel
@@ -59,7 +73,7 @@ struct Homepage: View {
     
     // Example data points for the scatter plot
     private var dataPoints: [DataPoint] {
-        let maxValue = viewModel.glucoseRecords.map { $0.value }.max() ?? 1
+        let maxValue = 400
         let currentDayRecords = viewModel.getCurrentDateData()
         return currentDayRecords.enumerated().map { index, record in
             let scaledX = CGFloat(index) / CGFloat(currentDayRecords.count - 1)
@@ -95,7 +109,7 @@ struct Homepage: View {
                         .ignoresSafeArea()
                         .frame(width: geometry.size.width, height: 130)
                     HStack{
-                        Text(greetingBasedOnTimeOfDay+",\n"+"Blaster")
+                        Text(greetingBasedOnTimeOfDay+",\n"+"\(viewModel.name)")
                             .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                             .padding(.leading, 30)
                             .foregroundColor(ant_ioColor.homepage_header_text(for: colorScheme))
@@ -110,7 +124,7 @@ struct Homepage: View {
             }
             .frame(height: 130)
             
-            ScatterPlotView(dataPoints: dataPoints)
+            ScatterPlotView(dataPoints: dataPoints, viewModel: viewModel)
                 .frame(width: .infinity, height: 210)
                 .padding(20)
             HStack{
@@ -140,7 +154,7 @@ struct Homepage: View {
                         Color.clear
                                 .frame(height: 1)
                         HStack {
-                            Text("11")
+                            Text("\(viewModel.streak)")
                                 .font(.custom("IowanOldStyle-Bold", fixedSize: 32))
                                 .foregroundColor(ant_ioColor.text(for: colorScheme))
                             Text("  day streak")

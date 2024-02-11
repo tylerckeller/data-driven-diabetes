@@ -28,7 +28,6 @@ struct Onboard: View {
                         .foregroundColor(ant_ioColor.text(for: colorScheme))
                     TextField("Name", text: $firstName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
                         .font(.custom("IowanOldStyle-Bold", fixedSize: 25))
                         .frame(width: 225, height: 80)
                     
