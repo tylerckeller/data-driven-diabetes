@@ -20,9 +20,8 @@ struct Onboard: View {
         VStack {
             Spacer()
             Button(action: {
-//                viewModel.connectToDexcom()
-//                viewModel.getAllEGVs()
-                sleep(5)
+                viewModel.connectToDexcom()
+                viewModel.getAllEGVs()
                 onLogin()
             }) {
                 ZStack {
@@ -30,10 +29,11 @@ struct Onboard: View {
                         .fill(Color.green)
                         .frame(width: 160, height: 80)
                     Text("Connect to Dexcom")
-                        .font(.title)
+                        .font(.title3)
                         .foregroundColor(.white)
                 }
             }
+            Spacer()
         }
 //        .background(ant_ioColor.background(for: UserManager.shared.colorScheme))
     }

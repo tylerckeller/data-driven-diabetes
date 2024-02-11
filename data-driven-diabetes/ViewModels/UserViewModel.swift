@@ -7,15 +7,12 @@
 
 import Foundation
 import SwiftUI
+import GameplayKit
 
 class UserViewModel: ObservableObject {
     @ObservedObject var userManager = UserManager.shared
     private var LOG_TAG = "LOG: ViewModel"
     @Published var glucoseRecords: [GlucoseRecord] = []
-    
-    init() {
-        self.getAllEGVs()
-    }
     
     private let mDexcomService = DexcomService();
     
@@ -39,6 +36,8 @@ class UserViewModel: ObservableObject {
         // Iterate through each day from 3 months ago to today
         var currentDate = threeMonthAgo
         let endDate = Date() // Capture the end date to avoid processing beyond today.
+        let random = GKRandomSource()
+        let changeFunc = GKGaussianDistribution(randomSource: random, lowestValue: -15, highestValue: 15)
         while currentDate <= endDate {
             for hour in 0..<24 {
                 for minute in stride(from: 0, to: 60, by: 5) {
@@ -47,7 +46,7 @@ class UserViewModel: ObservableObject {
                     let displayTime = systemTime // For simplicity, using systemTime. Adjust accordingly.
 
                     // Adjust value by a random amount between 0 and 15, ensuring it does not go below 70 or above 180
-                    let change = Int.random(in: -15...15) // Allow for both increase and decrease
+                    let change = changeFunc.nextInt()
                     lastValue += change
                     lastValue = min(max(lastValue, 70), 180) // Ensure value is within bounds
 
