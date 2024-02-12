@@ -1,8 +1,8 @@
 ## BlasterHacks 2024 Submission
-> 2nd place in the education track
+> **2nd place in the education track**
 
 #### Created by:
-> Colton Morris and Tyler Keller
+> **Colton Morris and Tyler Keller**
 
 ## Origin
 
